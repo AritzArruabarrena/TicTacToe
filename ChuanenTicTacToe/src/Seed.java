@@ -10,7 +10,7 @@
  *  however, not supported.
  */
 public enum Seed {   // to save as "Seed.java"
-   CROSS("X"), NOUGHT("O"), NO_SEED(" ");
+   CROSS("❌"), NOUGHT("/U+25EF"), NO_SEED(" ");
 
    // Private variable
    private String icon;
@@ -22,4 +22,6 @@ public enum Seed {   // to save as "Seed.java"
    public String getIcon() {
       return icon;
    }
+
+
 }

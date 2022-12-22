@@ -25,17 +25,17 @@ public class GameMain {
       // Play the game once
       do {
          // The currentPlayer makes a move.
-         // Update cells[][] and currentState
+         // Update cells[][] and currentState1
          stepGame();
          // Refresh the display
          board.paint();
          // Print message if game over
          if (currentState == State.CROSS_WON) {
-            System.out.println("'X' won!\nBye!");
+            System.out.println("'X'-ak irabazi du!\nAgur!");
          } else if (currentState == State.NOUGHT_WON) {
-            System.out.println("'O' won!\nBye!");
+            System.out.println("'O'-ak irabazi du!\nAgur!");
          } else if (currentState == State.DRAW) {
-            System.out.println("It's Draw!\nBye!");
+            System.out.println("Empatea izan da!\nAgur!");
          }
          // Switch currentPlayer
          currentPlayer = (currentPlayer == Seed.CROSS) ? Seed.NOUGHT : Seed.CROSS;
@@ -60,7 +60,7 @@ public class GameMain {
       boolean validInput = false;  // for validating input
       do {
          String icon = currentPlayer.getIcon();
-         System.out.print("Player '" + icon + "', enter your move (row[1-3] column[1-3]): ");
+         System.out.print("'" + icon + "' jokalaria, sartu ezazu zure mugimendua [1-3] ilara eta [1-3] zutabeen artean zenbakiak espazio batez bananduta): ");
          int row = in.nextInt() - 1;   // [0-2]
          int col = in.nextInt() - 1;
          if (row >= 0 && row < Board.ROWS && col >= 0 && col < Board.COLS
@@ -69,8 +69,8 @@ public class GameMain {
             currentState = board.stepGame(currentPlayer, row, col);
             validInput = true; // input okay, exit loop
          } else {
-            System.out.println("This move at (" + (row + 1) + "," + (col + 1)
-                  + ") is not valid. Try again...");
+            System.out.println("(" + (row + 1) + "," + (col + 1)
+                  + ") mugimenduak ez du balio saiatu berriz [1-3] ilara eta [1-3] zutabeen artean zenbakiak espazio batez bananduta");
          }
       } while (!validInput);   // repeat until input is valid
    }
