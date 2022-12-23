@@ -31,9 +31,11 @@ public class GameMain {
          board.paint();
          // Print message if game over
          if (currentState == State.CROSS_WON) {
-            System.out.println("'X'-ak irabazi du!\nAgur!");
+            System.out.println("\033[31m'\u2716'-ak irabazi du!");
+            System.out.println("\033[37mAgur!");
          } else if (currentState == State.NOUGHT_WON) {
-            System.out.println("'O'-ak irabazi du!\nAgur!");
+            System.out.println("\033[34m'\u25EF'-ak irabazi du!");
+            System.out.println("\033[37mAgur!");
          } else if (currentState == State.DRAW) {
             System.out.println("Empatea izan da!\nAgur!");
          }
@@ -54,13 +56,14 @@ public class GameMain {
       currentState = State.PLAYING; // ready to play
    }
 
-   /** The currentPlayer makes one move.
-       Update cells[][] and currentState. */
+   
+   
+       
    public void stepGame() {
       boolean validInput = false;  // for validating input
       do {
          String icon = currentPlayer.getIcon();
-         System.out.print("'" + icon + "' jokalaria, sartu ezazu zure mugimendua [1-3] ilara eta [1-3] zutabeen artean zenbakiak espazio batez bananduta): ");
+         System.out.print( icon + "  jokalaria, sartu ezazu zure mugimendua [1-3] ilara eta [1-3] zutabeen artean zenbakiak espazio batez bananduta): ");
          int row = in.nextInt() - 1;   // [0-2]
          int col = in.nextInt() - 1;
          if (row >= 0 && row < Board.ROWS && col >= 0 && col < Board.COLS
@@ -74,6 +77,8 @@ public class GameMain {
          }
       } while (!validInput);   // repeat until input is valid
    }
+
+
 
    /** The entry main() method */
    public static void main(String[] args) {

@@ -80,11 +80,11 @@ public class Board {  // save as "Board.java"
             System.out.print(" ");
             cells[row][col].paint();   // each cell paints itself
             System.out.print(" ");
-            if (col < COLS - 1) System.out.print("│");  // column separator
+            if (col < COLS - 1) System.out.print("\033[37m ║");  // column separator
          }
          System.out.println();
          if (row < ROWS - 1) {
-            System.out.println("───────────");  // row separator
+            System.out.println("\033[37m══════════════");  // row separator
          }
       }
       System.out.println();
